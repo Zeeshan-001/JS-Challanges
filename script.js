@@ -112,4 +112,36 @@ function getMiddle(s) {
   return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
 }
 
-console.log(getMiddle("A"));
+// 16- Fuel to Left
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return distanceToPump <= mpg * fuelLeft;
+};
+
+// 17- Write a function that takes an array of words and smashes them together into a sentence and returns the sentence
+function smash(words) {
+  return words.map((w) => w.trim()).join(" ");
+}
+
+// 18- Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+function digitize(n) {
+  return String(n).split("").reverse().map(Number);
+}
+
+// 19- In a small town the population is p0 = 1000 at the beginning of a year.
+// The population regularly increases by 2 percent per year and moreover 50 new
+// inhabitants per year come to live in the town. How many years does the town
+// need to see its population greater than or equal to p = 1200 inhabitants?
+function nbYear(p0, percent, aug, p) {
+  let year = 0;
+  while (p0 < p) {
+    p0 += p0 * (percent / 100) + aug;
+    year++;
+  }
+  return year;
+}
+
+// 20- Find Index
+function findNeedle(haystack) {
+  const index = haystack.indexOf("needle");
+  return index > 0 && `found the needle at position ${index}`;
+}
