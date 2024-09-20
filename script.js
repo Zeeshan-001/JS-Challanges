@@ -145,3 +145,39 @@ function findNeedle(haystack) {
   const index = haystack.indexOf("needle");
   return index > 0 && `found the needle at position ${index}`;
 }
+
+// 21- String to Uppercase
+const toUpperCase = (str) => {
+  return str
+    .split(" ")
+    .map((s) => s[0].toUpperCase() + s.slice(1))
+    .join(" ");
+};
+
+// 22- Get Integer
+function filter_list(l) {
+  return l.filter(Number.isInteger);
+}
+
+// 23
+function rowSumOddNumbers(n) {
+  return Math.pow(n, 3);
+}
+
+// 24
+const binaryArrayToNumber = (arr) => {
+  let output = 0;
+
+  arr.reverse().map((a, i) => {
+    output += a > 0 ? 2 ** i : 0;
+  });
+
+  return output;
+};
+
+// 25
+const quarterOf = (month) => {
+  return Math.ceil(month / 3);
+};
+
+console.log(quarterOf(10));
