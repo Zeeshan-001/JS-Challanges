@@ -180,4 +180,181 @@ const quarterOf = (month) => {
   return Math.ceil(month / 3);
 };
 
-console.log(quarterOf(10));
+// 26
+function DNAtoRNA(dna) {
+  return dna.replaceAll("T", "U");
+}
+
+// 27
+function XO(str) {
+  let x = 0;
+  let o = 0;
+
+  for (const item of str.toLowerCase()) {
+    if (item === "X") x++;
+    if (item === "o") o++;
+  }
+  return x === o;
+}
+
+// 28
+var min = function (list) {
+  return Math.min(...list);
+};
+
+var max = function (list) {
+  return Math.max(...list);
+};
+
+// 29
+function sumMix(x) {
+  return x.reduce((sum, currentValue) => (sum += Number(currentValue)), 0);
+}
+
+// 30
+function boolToWord(bool) {
+  return bool === true ? "Yes" : "No";
+}
+
+// 31
+function areYouPlayingBanjo(name) {
+  const str = "play banjo";
+
+  return name[0].toLowerCase() !== "r"
+    ? `${name} does not play banjo`
+    : `${name} plays banjo`;
+}
+
+// 32
+function abbrevName(name) {
+  return name
+    .split(" ")
+    .map((n) => n[0].toUpperCase())
+    .join(".");
+}
+
+// 33
+function order(words) {
+  return words
+    .split(" ")
+    .sort((a, b) => a.match(/\d/) - b.match(/\d/)) // Sorts the array by comparing the numbers in the words
+    .join(" ");
+}
+
+// 34
+function paperwork(n, m) {
+  return n > 0 && m > 0 ? n * m : 0;
+}
+
+// 35
+function sortArray(array) {
+  const oddNumbers = array.filter((a) => a % 2 !== 0).sort((a, b) => a - b);
+  return array.map((arr) => (arr % 2 !== 0 ? oddNumbers.shift(arr) : arr));
+}
+
+// 36
+function getCount(str) {
+  const vowels = /[aeiouAEIOU]/g;
+
+  return str
+    .split("")
+    .reduce((count, char) => (vowels.test(char) ? count + 1 : count), 0);
+}
+
+// 37
+function betterThanAverage(classPoints, yourPoints) {
+  return (
+    yourPoints > classPoints.reduce((c, n) => c + n, 0) / classPoints.length
+  );
+}
+
+// 38
+function arrayDiff(a, b) {
+  return a.filter((item) => !b.includes(item));
+}
+
+// 39
+function longest(s1, s2) {
+  const uniqueChars = new Set([...s1, ...s2]);
+  return [...uniqueChars].sort().join("");
+}
+
+// 40
+function isTriangle(a, b, c) {
+  return a + b > c && a + c > b && b + c > a;
+}
+
+// 41
+function century(year) {
+  return Math.ceil(year / 100);
+}
+
+// 42
+var uniqueInOrder = function (iterable) {
+  return [...iterable].reduce((arr, currentChar, index, iterables) => {
+    if (currentChar !== iterables[index - 1]) {
+      arr.push(currentChar);
+    }
+    return arr;
+  }, []);
+};
+
+// 43
+function basicOp(operation, value1, value2) {
+  switch (operation) {
+    case "+":
+      return value1 + value2;
+    case "-":
+      return value1 - value2;
+    case "*":
+      return value1 * value2;
+    case "/":
+      return value1 / value2;
+    default:
+      return "Invalid operation";
+  }
+}
+
+// 44
+function alphabetPosition(text) {
+  const arr = [];
+
+  const alphabets = Array.from({ length: 26 }, (_, i) =>
+    String.fromCharCode(97 + i)
+  );
+
+  const textArr = text.toLowerCase().split("");
+
+  for (let t = 0; t < textArr.length; t++) {
+    const pos = alphabets.findIndex((letter) => letter === textArr[t]);
+
+    if (pos >= 0) {
+      arr.push(pos + 1);
+    }
+  }
+
+  return arr.join(" ");
+}
+
+// 45
+function minMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+// 46
+function hoopCount(n) {
+  return n >= 10
+    ? "Great, now move on to tricks"
+    : "Keep at it until you get it";
+}
+
+// 47
+function towerBuilder(nFloors) {
+  for (let i = 1; i <= nFloors; i++) {
+    const spaces = " ".repeat(nFloors - i);
+    const stars = "*".repeat(i * 2 - 1);
+    console.log(spaces + stars + spaces + "\n");
+  }
+}
+
+console.log(towerBuilder(100));
